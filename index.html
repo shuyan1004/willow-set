@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>孙舒颜 · 一本手账</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- 道林纸纹理叠层（全局） -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- ============== 首页：手账起始页 ============== -->
+  <main class="page page-home is-active" data-page="home" id="page-home">
+    <div class="desk-scene">
+      <!-- 木纹桌面背景 -->
+      <div class="desk-surface" aria-hidden="true"></div>
+
+      <!-- 中央大笔记本 -->
+      <div class="desk-notebook-wrap">
+        <div class="main-notebook" id="main-notebook" data-target="toc">
+          <div class="notebook-cover">
+            <span class="notebook-label">Know about</span>
+            <span class="notebook-name">Shuyan</span>
+          </div>
+          <div class="notebook-pages"></div>
+          <div class="notebook-bookmark"></div>
+          <!-- 侧边卡口 + hover提示 -->
+          <div class="notebook-tab">
+            <span class="tab-tooltip">打开手账了解我~</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 手机 -->
+      <div class="desk-item desk-phone" style="--r:-6deg">
+        <div class="phone-body">
+          <div class="phone-screen">
+            <span class="phone-text">hello，I'm willow!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 咖啡杯 -->
+      <div class="desk-item desk-coffee" style="--r:3deg">
+        <div class="coffee-cup">
+          <div class="coffee-liquid"></div>
+          <div class="coffee-handle"></div>
+        </div>
+        <div class="coffee-steam s1"></div>
+        <div class="coffee-steam s2"></div>
+        <div class="coffee-steam s3"></div>
+      </div>
+
+      <!-- 眼镜 -->
+      <div class="desk-item desk-glasses-item" style="--r:-4deg">
+        <div class="glasses-frame">
+          <div class="glasses-lens"></div>
+          <div class="glasses-bridge"></div>
+          <div class="glasses-lens"></div>
+        </div>
+      </div>
+
+      <!-- 桌面照片（白色拍立得风格） -->
+      <div class="desk-item desk-framed-photo" style="--r:3deg">
+        <div class="polaroid-tape"></div>
+        <img src="assets/me/CHHW7451.JPG" alt="照片" />
+      </div>
+
+      <!-- 文件夹 -->
+      <div class="desk-item desk-folder" style="--r:2deg">
+        <div class="folder-tab">Project Drafts</div>
+        <div class="folder-body">
+          <span class="folder-text">PROTOTYPES<br>v1.0</span>
+        </div>
+      </div>
+
+      <!-- 铅笔 -->
+      <div class="desk-item desk-pencil-item" style="--r:12deg">
+        <div class="pencil-body">
+          <div class="pencil-wood"></div>
+          <div class="pencil-tip"></div>
+          <div class="pencil-eraser"></div>
+        </div>
+      </div>
+
+      <!-- 橡皮 -->
+      <div class="desk-item desk-eraser" style="--r:-8deg">
+        <div class="eraser-body"></div>
+      </div>
+
+      <!-- 拍立得照片 -->
+      <div class="desk-item desk-polaroid" style="--r:5deg">
+        <div class="polaroid-tape"></div>
+        <img src="assets/me/photo.jpg" alt="孙舒颜" />
+        <span class="polaroid-cap handwritten">毕业快乐</span>
+      </div>
+
+      <!-- 塔罗卡片 -->
+      <div class="desk-item desk-tarot" style="--r:-3deg">
+        <div class="tarot-card-back-mini">
+          <span class="tarot-back-pattern">✦</span>
+        </div>
+      </div>
+
+      <!-- Quick Facts 便利贴 -->
+      <div class="desk-item desk-facts" style="--r:1deg">
+        <div class="facts-pin"></div>
+        <h4 class="handwritten">Quick Facts</h4>
+        <ul>
+          <li>INTJ / 天秤座</li>
+          <li>27届硕士毕业生</li>
+          <li>经济学&法学学士</li>
+          <li>现居 北京</li>
+          <li>shuyanyaaa@163.com</li>
+        </ul>
+      </div>
+
+      <!-- 快捷按钮 -->
+      <div class="desk-actions">
+        <a href="assets/resume.pdf" class="oval-btn" download>
+          <span class="ob-icon">📄</span>
+          <span class="ob-label">PDF 简历</span>
+        </a>
+        <a href="mailto:shuyanyaaa@163.com" class="oval-btn">
+          <span class="ob-icon">✉️</span>
+          <span class="ob-label">联系我</span>
+        </a>
+      </div>
+
+      <!-- 散落星星装饰 -->
+      <span class="desk-star" style="--s:14px;--x:8%;--y:15%;">✦</span>
+      <span class="desk-star" style="--s:10px;--x:92%;--y:22%;">✧</span>
+      <span class="desk-star" style="--s:12px;--x:15%;--y:75%;">✦</span>
+      <span class="desk-star" style="--s:9px;--x:88%;--y:68%;">✧</span>
+      <span class="desk-star" style="--s:11px;--x:75%;--y:90%;">✦</span>
+    </div>
+  </main>
+
+  <!-- ============== 目录页：contents ============== -->
+  <section class="page page-inner" data-page="toc" id="page-toc">
+    <button class="bookmark-back" aria-label="返回首页">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">翻回首页</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+      <div class="spread">
+        <div class="spine" aria-hidden="true"></div>
+
+        <!-- 左页：目录标题 -->
+        <div class="page-left">
+          <header class="inner-header">
+            <p class="kicker handwritten">✿ CONTENTS ✿</p>
+            <h2 class="inner-h2">目<span class="handwritten">录</span></h2>
+            <p class="inner-sub handwritten">— 一部分我 —</p>
+          </header>
+
+          <!-- 使用说明便利贴 -->
+          <div class="inner-sticky" style="--r:-1deg; margin:34px auto 0; max-width:380px; padding:22px 24px 18px;">
+            <div class="pin" style="top:-10px; width:18px; height:18px;"></div>
+            <h4 style="font-size:34px; margin:0 0 14px; padding-bottom:10px; text-align:center;">手账阅读小Tips！</h4>
+            <p style="font-size:26px; line-height:1.8; color:var(--ink); margin:0; text-align:center;">手账共 5 页💫<br/>点右侧标签直达页面<br/>左上角书签，一键回到目录✿</p>
+          </div>
+
+          <!-- 装饰 -->
+          <span class="deco-item deco-camera" style="bottom:30px;left:18px;">📷</span>
+          <span class="deco-item deco-flower" style="bottom:70px;right:28px;">🌸</span>
+          <span class="deco-item deco-sparkle" style="top:8px;left:20px;">✨</span>
+        </div>
+
+        <!-- 右页：板块标签列表 -->
+        <div class="page-right">
+          <span class="deco-item deco-star-yellow" style="top:10px;right:15px;">⭐</span>
+
+          <p class="handwritten" style="font-size:17px; color:var(--cute-pink-d); margin:32px 0 16px; text-align:center;">— 随心翻~ —</p>
+
+          <div class="toc-list">
+            <a class="toc-item" data-target="about" style="--r:-1deg; --tc:#f6d8d4;">
+              <span class="toc-num">01</span>
+              <span class="toc-icon">👩</span>
+              <span class="toc-name">关于我</span>
+              <span class="toc-arrow">→</span>
+            </a>
+            <a class="toc-item" data-target="edu" style="--r:1deg; --tc:#fdf0cc;">
+              <span class="toc-num">02</span>
+              <span class="toc-icon">✈️</span>
+              <span class="toc-name">求学手记</span>
+              <span class="toc-arrow">→</span>
+            </a>
+            <a class="toc-item" data-target="work" style="--r:-1deg; --tc:#dcead8;">
+              <span class="toc-num">03</span>
+              <span class="toc-icon">💼</span>
+              <span class="toc-name">职场存档</span>
+              <span class="toc-arrow">→</span>
+            </a>
+            <a class="toc-item" data-target="skills" style="--r:-1deg; --tc:#eadcf0;">
+              <span class="toc-num">04</span>
+              <span class="toc-icon">🔮</span>
+              <span class="toc-name">技能图鉴</span>
+              <span class="toc-arrow">→</span>
+            </a>
+            <a class="toc-item" data-target="hobby" style="--r:1deg; --tc:#fbe3d0;">
+              <span class="toc-num">05</span>
+              <span class="toc-icon">🌸</span>
+              <span class="toc-name">闲趣日常</span>
+              <span class="toc-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 内页01：本册主人 ============== -->
+  <section class="page page-inner" data-page="about" id="page-about">
+    <button class="bookmark-back" aria-label="返回目录">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">返回目录</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+      <div class="spread">
+        <div class="spine" aria-hidden="true"></div>
+
+        <!-- 左页 -->
+        <div class="page-left" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <!-- 拍立得照片 + 标签气泡 -->
+          <div class="photo-bubbles-wrap">
+            <div class="inner-polaroid" style="width:220px;">
+              <div class="tape tape-corner tape-pink"></div>
+              <img src="assets/me/rhnne4158.jpg" alt="孙舒颜" />
+              <span class="polaroid-caption">是我呀 ✿</span>
+            </div>
+            <span class="tag-bubble" style="--bc:#fce4ec; --bc-d:#f8bbd0; top:-10px; left:-14px;">数据驱动</span>
+            <span class="tag-bubble" style="--bc:#e3f2fd; --bc-d:#bbdefb; top:4px; right:-18px;">商业洞察</span>
+            <span class="tag-bubble" style="--bc:#f3e5f5; --bc-d:#e1bee7; top:200px; left:-22px;">文理兼修</span>
+            <span class="tag-bubble" style="--bc:#e8f5e9; --bc-d:#c8e6c9; top:220px; right:-26px;">落地力强</span>
+            <span class="tag-bubble" style="--bc:#fff3e0; --bc-d:#ffe0b2; bottom:-8px; left:8px;">专注坚韧</span>
+            <span class="tag-bubble" style="--bc:#e0f7fa; --bc-d:#b2ebf2; bottom:4px; right:-12px;">动静皆宜</span>
+          </div>
+
+          <!-- 装饰贴纸 -->
+          <span class="deco-item deco-camera" style="top:10px;right:20px;">📷</span>
+          <span class="deco-item deco-flower" style="top:200px;left:10px;">🌸</span>
+        </div>
+
+        <!-- 右页 -->
+        <div class="page-right about-right">
+          <!-- 花字标题 -->
+          <h2 style="font-family:var(--ff-hand); font-size:32px; color:var(--cute-pink-d); margin:0 0 100px; text-align:center; letter-spacing:2px;">🌸 你好，我是孙舒颜 🌸</h2>
+
+          <!-- 描述段落 -->
+          <div class="about-desc">
+            <p>从咨询到运营，从业务梳理到用户洞察，从数据支撑到落地决策，努力成为一个<em>"听得懂业务、看得到数据、写得出方案"</em>的复合型产品/运营人。</p>
+          </div>
+
+          <!-- Awards -->
+          <div class="about-awards" style="margin-top:80px;">
+            <h4 class="handwritten">🏆 Awards</h4>
+            <ul class="awards-list">
+              <li>全国大学生英语词汇竞赛 · 一等奖</li>
+              <li>大学生金融知识与应用大赛 · 一等奖</li>
+              <li>NECCS 全国大学生英语竞赛 · C类二等奖</li>
+              <li>国才杯 · 全国高校商务英语竞赛 · 银奖</li>
+              <li>梧桐奖章 · 专业奖学金 · 优秀团干部 · 三好学生</li>
+            </ul>
+          </div>
+
+          <!-- 标签 pills -->
+          <div class="about-tags">
+            <span class="about-tag">数据驱动</span>
+            <span class="about-tag">商家运营</span>
+            <span class="about-tag">竞品分析</span>
+            <span class="about-tag">跨部门协同</span>
+          </div>
+
+          <!-- 装饰 -->
+          <span class="deco-item deco-star-yellow" style="bottom:20px;right:20px;">⭐</span>
+        </div>
+      </div>
+
+      <!-- 下一页 -->
+      <button class="next-page-btn" data-next="edu" aria-label="下一页">
+        <span class="np-text handwritten">下一页</span>
+        <span class="np-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============== 内页02：求学手记 ============== -->
+  <section class="page page-inner" data-page="edu" id="page-edu">
+    <button class="bookmark-back" aria-label="返回目录">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">返回目录</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+
+      <!-- 整页标题区 -->
+      <div class="edu-page-header">
+        <header class="inner-header">
+          <p class="kicker handwritten">✿ EDUCATION DIARY ✿</p>
+          <h2 class="inner-h2">求<span class="handwritten">学</span>手<span class="handwritten">记</span></h2>
+        </header>
+        <div class="flight-path">
+          <div class="flight-line">
+            <span class="flight-dot flight-from">河北</span>
+            <span class="flight-plane">✈</span>
+            <span class="flight-dot flight-to">北京</span>
+          </div>
+          <p class="flight-schools handwritten">河北师范大学 —— 北京第二外国语学院</p>
+        </div>
+      </div>
+
+      <div class="spread">
+        <!-- 左页 -->
+        <div class="page-left">
+          <!-- 本科卡片 -->
+          <article class="edu-card card-pink">
+            <div class="edu-badge">
+              <img src="assets/edu/hebtu-badge.webp" alt="河北师大校徽" />
+            </div>
+            <div class="edu-photo">
+              <img src="assets/edu/hebtu-campus.webp" alt="河北师大校园" class="hebtu-crop" />
+              <div class="tape tape-corner tape-yellow"></div>
+            </div>
+            <div class="edu-info">
+              <span class="edu-period handwritten">2020.09 – 2024.06 · 本科</span>
+              <h3 class="edu-school">河北师范大学</h3>
+              <p class="edu-major">金融工程（主修）· 法学（辅修）</p>
+              <ul class="edu-detail">
+                <li><span class="lbl">GPA</span><span class="val">3.78 / 4.0</span></li>
+                <li><span class="lbl">核心课程</span><span class="val">金融企业会计 96 · 金融市场学 94 · 统计学 94 · 金融工程 93</span></li>
+                <li><span class="lbl">荣誉</span><span class="val">专业奖学金 · 优秀团员 · 校级三好学生</span></li>
+                <li><span class="lbl">学生工作</span><span class="val">金融风险防范宣讲团主讲人 · 新媒体联盟骨干</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- 右页 -->
+        <div class="page-right">
+          <!-- 装饰 -->
+          <span class="deco-item deco-star-yellow" style="top:10px;right:15px;">⭐</span>
+
+          <!-- 硕士卡片 -->
+          <article class="edu-card card-mint">
+            <div class="edu-badge">
+              <img src="assets/edu/bisu-badge.jpg" alt="北二外校徽" />
+            </div>
+            <div class="edu-photo">
+              <img src="assets/edu/bisu-campus.jpg" alt="北二外校园" />
+              <div class="tape tape-corner tape-pink"></div>
+            </div>
+            <div class="edu-info">
+              <span class="edu-period handwritten">2024.09 – 2027.06 · 硕士</span>
+              <h3 class="edu-school">北京第二外国语学院</h3>
+              <p class="edu-major">国际文化贸易专业 · 经济学方向</p>
+              <ul class="edu-detail">
+                <li><span class="lbl">GPA</span><span class="val">3.89 / 4.0</span></li>
+                <li><span class="lbl">核心课程</span><span class="val">文化贸易企业跨国经营 96 · 文化贸易大数据分析 93.6</span></li>
+                <li><span class="lbl">荣誉</span><span class="val">专业奖学金 · 梧桐奖章 · 优秀团干部</span></li>
+                <li><span class="lbl">学生工作</span><span class="val">团支书 · 研究院学生助理</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 下一页 -->
+      <button class="next-page-btn" data-next="work" aria-label="下一页">
+        <span class="np-text handwritten">下一页</span>
+        <span class="np-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============== 内页03：职场存档 ============== -->
+  <section class="page page-inner" data-page="work" id="page-work">
+    <button class="bookmark-back" aria-label="返回目录">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">返回目录</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+      <div class="spread">
+        <div class="spine" aria-hidden="true"></div>
+
+        <!-- 左页 -->
+        <div class="page-left">
+          <header class="inner-header">
+            <p class="kicker handwritten">✿ INTERNSHIP ARCHIVE ✿</p>
+            <h2 class="inner-h2">职<span class="handwritten">场</span>存<span class="handwritten">档</span></h2>
+            <p class="inner-sub handwritten">— 时间倒序，在实战中不断成长 —</p>
+          </header>
+
+          <!-- 美团 -->
+          <article class="work-card card-cream">
+            <div class="tape tape-corner tape-pink"></div>
+            <div class="work-head">
+              <div class="work-company">
+                <h3>美团</h3>
+                <span class="work-team handwritten">履约业务部 · 商家供给运营</span>
+              </div>
+              <span class="work-time handwritten">2025.12 – 2026.05</span>
+            </div>
+            <ul class="work-list">
+              <li><span class="dot dot-pink"></span>调研前后线合作商经营管理痛点，迭代升级商关键岗位评价体系，基于历史数据演算确定指标权重与赋分区间，输出标准化制度文件。</li>
+              <li><span class="dot dot-pink"></span>搭建评价指标自动化测算模板，按月完成 700+ 商、5000+ 人的评价结果测算，建立 PDCA 常态化运营机制。</li>
+              <li><span class="dot dot-pink"></span>基于评价结果完成合作商分级，设计尾部差异化分层治理方案并联动前线推动落地，SA 级人员占比累计提升 <strong>6.74pp</strong>，C 级占比累计下降 <strong>1.59pp</strong>。</li>
+              <li><span class="dot dot-pink"></span>识别人才平台侧痛点，输出合作商人才管理系统初版 MRD，预计月度节约平台侧 1000+ 工时，年度节约招募成本约 300 万元。</li>
+            </ul>
+          </article>
+
+          <!-- 绿盟科技 -->
+          <article class="work-card card-pink" style="margin-top:16px;">
+            <div class="tape tape-corner tape-yellow"></div>
+            <div class="work-head">
+              <div class="work-company">
+                <h3>绿盟科技</h3>
+                <span class="work-team handwritten">产品运营</span>
+              </div>
+              <span class="work-time handwritten">2025.09 – 2025.11</span>
+            </div>
+            <ul class="work-list">
+              <li><span class="dot dot-pink"></span>整合全业务经营数据，按月输出 VP 级经营月报，为管理层提供常态化数据决策依据。</li>
+              <li><span class="dot dot-pink"></span>拉通 12 个产品线 Q3 经营数据，搭建三级产品毛利率测算框架，精准核算各品类盈利水平，输出专项盈利分析报告。</li>
+              <li><span class="dot dot-pink"></span>协同各产品部门编制产品 BG Q3 季报，横向对标各业务运营表现，提升整体经营复盘效率。</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 右页 -->
+        <div class="page-right">
+          <!-- 装饰 -->
+          <span class="deco-item deco-camera" style="top:10px;right:20px;">📷</span>
+          <span class="deco-item deco-flower" style="top:80px;left:5px;">🌸</span>
+
+          <!-- 埃森哲 -->
+          <article class="work-card card-mint" style="margin-top:190px;">
+            <div class="tape tape-corner tape-blue"></div>
+            <div class="work-head">
+              <div class="work-company">
+                <h3>埃森哲</h3>
+                <span class="work-team handwritten">项目实习生 · 战略与咨询服务线</span>
+              </div>
+              <span class="work-time handwritten">2025.01 – 2025.03</span>
+            </div>
+            <ul class="work-list">
+              <li><span class="dot dot-mint"></span>参与 4 场家电、新能源行业专家访谈，结构化拆解访谈内容并输出标准化纪要，提炼行业痛点与成熟落地经验。</li>
+              <li><span class="dot dot-mint"></span>收集 6 家新能源头部企业营收、成本数据搭建财务对标模型；梳理 134 家半导体厂商信息并形成标准化清单，绘制部分产业链图谱。</li>
+              <li><span class="dot dot-mint"></span>梳理企业高管组织架构并独立完成专项 PPT；将竞品分析结论转化为商业画布可视化图表，支撑客户汇报与项目策略研讨。</li>
+            </ul>
+          </article>
+
+          <!-- 工牌照片 -->
+          <div class="work-badges">
+            <figure class="work-badge-pic">
+              <img src="assets/work/绿盟工牌.png" alt="绿盟科技工牌" />
+            </figure>
+            <figure class="work-badge-pic">
+              <img src="assets/work/美团工牌.png" alt="美团工牌" />
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 下一页 -->
+      <button class="next-page-btn" data-next="skills" aria-label="下一页">
+        <span class="np-text handwritten">下一页</span>
+        <span class="np-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============== 内页04：技能图鉴（塔罗牌抽取） ============== -->
+  <section class="page page-inner" data-page="skills" id="page-skills">
+    <button class="bookmark-back" aria-label="返回目录">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">返回目录</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+      <div class="spread">
+        <div class="spine" aria-hidden="true"></div>
+
+        <!-- 左页 -->
+        <div class="page-left">
+          <header class="inner-header">
+            <p class="kicker handwritten">✿ SKILLS TAROT ✿</p>
+            <h2 class="inner-h2">技<span class="handwritten">能</span>图<span class="handwritten">鉴</span></h2>
+            <p class="inner-sub handwritten">— 抽一张牌，看看我有什么本领 —</p>
+          </header>
+
+          <!-- 牌堆 -->
+          <div class="tarot-deck-side" style="padding:20px;">
+            <div class="tarot-deck scattered" id="tarotDeck">
+              <div class="tarot-card-back" style="--i:0; --rx:-3deg; --ry:2deg; --tx:-12px; --ty:-6px;"></div>
+              <div class="tarot-card-back" style="--i:1; --rx:2deg; --ry:-2deg; --tx:8px; --ty:4px;"></div>
+              <div class="tarot-card-back" style="--i:2; --rx:-1deg; --ry:3deg; --tx:-6px; --ty:10px;"></div>
+              <div class="tarot-card-back" style="--i:3; --rx:3deg; --ry:-1deg; --tx:14px; --ty:-4px;"></div>
+              <div class="tarot-card-back" style="--i:4; --rx:-2deg; --ry:1deg; --tx:-4px; --ty:8px;"></div>
+              <div class="tarot-card-back" style="--i:5; --rx:1deg; --ry:-3deg; --tx:6px; --ty:-10px;"></div>
+              <div class="tarot-card-back" style="--i:6; --rx:-1deg; --ry:2deg; --tx:2px; --ty:6px;"></div>
+            </div>
+            <button class="tarot-draw-btn" id="tarotDrawBtn" style="margin-top:16px;">
+              <span class="handwritten">✦ 抽一张 ✦</span>
+            </button>
+            <button class="tarot-shuffle-btn" id="tarotShuffleBtn">
+              <span class="handwritten">洗牌</span>
+            </button>
+          </div>
+
+          <!-- 已抽出的牌 -->
+          <div class="tarot-drawn-area" id="tarotDrawnArea" style="margin-top:16px;">
+            <p class="drawn-title handwritten" style="font-size:18px;">已抽出的牌 ✿</p>
+            <div class="tarot-drawn-list" id="tarotDrawnList"></div>
+          </div>
+        </div>
+
+        <!-- 右页 -->
+        <div class="page-right">
+          <!-- 装饰 -->
+          <span class="deco-item deco-star-yellow" style="top:15px;right:20px;">⭐</span>
+          <span class="deco-item deco-sparkle" style="top:60px;left:10px;">✨</span>
+
+          <!-- 展示台 -->
+          <div class="tarot-stage" id="tarotStage" style="min-height:420px; margin-top:110px;">
+            <div class="tarot-placeholder">
+              <span class="placeholder-icon">🐾</span>
+              <p class="handwritten">点击「抽一张」<br/>看看能抽到什么技能牌~</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 下一页 -->
+      <button class="next-page-btn" data-next="hobby" aria-label="下一页">
+        <span class="np-text handwritten">下一页</span>
+        <span class="np-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============== 内页06：闲趣日常 ============== -->
+  <section class="page page-inner" data-page="hobby" id="page-hobby">
+    <button class="bookmark-back" aria-label="返回目录">
+      <span class="bm-icon">←</span>
+      <span class="bm-text handwritten">返回目录</span>
+    </button>
+    <div class="notebook-wrap">
+      <div class="binder-rings" aria-hidden="true">
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+        <div class="binder-ring"></div>
+      </div>
+      <div class="spread">
+        <div class="spine" aria-hidden="true"></div>
+
+        <!-- 左页 -->
+        <div class="page-left">
+          <header class="inner-header">
+            <p class="kicker handwritten">✿ OFF-DUTY LIFE ✿</p>
+            <h2 class="inner-h2">闲<span class="handwritten">趣</span>日<span class="handwritten">常</span></h2>
+            <p class="inner-sub handwritten">— 把生活也塞进手账里 —</p>
+          </header>
+
+          <div class="hobby-grid" style="grid-template-columns:1fr 1fr; gap:12px;">
+            <article class="hobby-card card-pink" data-egg="一坐就是一天，拼完超有成就感">
+              <div class="tape tape-corner tape-pink"></div>
+              <div class="hobby-emoji">🧩</div>
+              <h3>拼豆</h3>
+              <p>拼豆能够抑制食欲，一坐就是一天，拼完看着成品，超有成就感。</p>
+            </article>
+            <article class="hobby-card card-cream" data-egg="让每一天都有迹可循">
+              <div class="tape tape-corner tape-yellow"></div>
+              <div class="hobby-emoji">📓</div>
+              <h3>做手账</h3>
+              <p>记录每日待办、三餐、小感悟……让生活更有秩序感。</p>
+            </article>
+            <article class="hobby-card card-mint" data-egg="相册爆满是一种幸福的烦恼">
+              <div class="tape tape-corner tape-mint"></div>
+              <div class="hobby-emoji">📷</div>
+              <h3>摄影</h3>
+              <p>爱拍照，相册常年爆满。</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- 右页 -->
+        <div class="page-right">
+          <!-- 装饰 -->
+          <span class="deco-item deco-flower" style="top:15px;right:20px;">🌸</span>
+
+          <div class="hobby-grid" style="grid-template-columns:1fr 1fr; gap:12px; margin-top:60px;">
+            <article class="hobby-card card-yellow" data-egg="单机玩家的快乐你不懂">
+              <div class="tape tape-corner tape-blue"></div>
+              <div class="hobby-emoji">🎮</div>
+              <h3>游戏</h3>
+              <p>烹饪类、卡牌竞技类，单机享受沉浸感。</p>
+            </article>
+            <article class="hobby-card card-blue" data-egg="睡前听播客是最好的催眠">
+              <div class="tape tape-corner tape-pink"></div>
+              <div class="hobby-emoji">🎧</div>
+              <h3>播客</h3>
+              <p>更偏爱喜剧类播客，睡前成长感悟类，催眠效果一流。</p>
+            </article>
+          </div>
+
+          <!-- 尾页寄语 -->
+          <div style="margin-top:30px; text-align:center;">
+            <p class="handwritten" style="font-size:18px; color:var(--cute-pink-d); margin:0 0 10px;">感谢你翻到这里 ✿</p>
+            <p class="handwritten" style="font-size:23px; color:var(--ink-light); margin:0 0 16px; font-weight:600;">下一段旅程，也许可以一起创造~</p>
+            <div class="inner-actions" style="justify-content:center;">
+              <a href="mailto:shuyanyaaa@163.com" class="oval-btn">
+                <span class="ob-icon">✉️</span>
+                <span class="ob-label">Email</span>
+              </a>
+              <span class="oval-btn" style="cursor:default;">
+                <span class="ob-icon">📱</span>
+                <span class="ob-label">186 1771 1900</span>
+              </span>
+            </div>
+          </div>
+
+          <span class="deco-item deco-star-yellow" style="bottom:20px;right:20px;">⭐</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 彩蛋弹出层 -->
+  <div class="egg-layer" id="eggLayer" aria-hidden="true">
+    <div class="egg-card">
+      <p class="egg-text handwritten" id="eggText">— 彩蛋来啦 —</p>
+      <button class="egg-close" id="eggClose" aria-label="关闭彩蛋">×</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
